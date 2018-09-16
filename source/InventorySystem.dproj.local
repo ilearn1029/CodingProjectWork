@@ -6,19 +6,19 @@
     <Transaction>2018/09/14 23:14:46.000.978,C:\temp\Jupiter\InventorySystem\InventoryMainFRM.pas=C:\Users\mhassan_dev\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2018/09/14 23:14:59.000.114,C:\temp\Jupiter\InventorySystem\InventorySystem.dproj=C:\Users\mhassan_dev\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2018/09/14 23:18:28.000.365,=C:\temp\Jupiter\InventorySystem\Unit1.pas</Transaction>
-    <Transaction>2018/09/14 23:19:00.000.820,C:\temp\Jupiter\InventorySystem\InventoryDM.dfm=C:\temp\Jupiter\InventorySystem\Unit1.dfm</Transaction>
     <Transaction>2018/09/14 23:19:00.000.820,C:\temp\Jupiter\InventorySystem\InventoryDM.pas=C:\temp\Jupiter\InventorySystem\Unit1.pas</Transaction>
+    <Transaction>2018/09/14 23:19:00.000.820,C:\temp\Jupiter\InventorySystem\InventoryDM.dfm=C:\temp\Jupiter\InventorySystem\Unit1.dfm</Transaction>
     <Transaction>2018/09/15 12:50:38.000.642,=C:\temp\Jupiter\InventorySystem\Unit1.pas</Transaction>
-    <Transaction>2018/09/15 12:51:04.000.207,C:\temp\Jupiter\InventorySystem\Unit1.dfm=C:\temp\Jupiter\InventorySystem\StattionaryStocksFRM.dfm</Transaction>
     <Transaction>2018/09/15 12:51:04.000.207,C:\temp\Jupiter\InventorySystem\Unit1.pas=C:\temp\Jupiter\InventorySystem\StattionaryStocksFRM.pas</Transaction>
-    <Transaction>2018/09/15 12:52:05.000.865,C:\temp\Jupiter\InventorySystem\StattionaryStocksFRM.dfm=C:\temp\Jupiter\InventorySystem\StationaryStocksFRM.dfm</Transaction>
+    <Transaction>2018/09/15 12:51:04.000.207,C:\temp\Jupiter\InventorySystem\Unit1.dfm=C:\temp\Jupiter\InventorySystem\StattionaryStocksFRM.dfm</Transaction>
     <Transaction>2018/09/15 12:52:05.000.865,C:\temp\Jupiter\InventorySystem\StattionaryStocksFRM.pas=C:\temp\Jupiter\InventorySystem\StationaryStocksFRM.pas</Transaction>
+    <Transaction>2018/09/15 12:52:05.000.865,C:\temp\Jupiter\InventorySystem\StattionaryStocksFRM.dfm=C:\temp\Jupiter\InventorySystem\StationaryStocksFRM.dfm</Transaction>
     <Transaction>2018/09/15 12:56:31.000.197,=C:\temp\Jupiter\InventorySystem\Unit1.pas</Transaction>
-    <Transaction>2018/09/15 12:56:44.000.440,C:\temp\Jupiter\InventorySystem\Unit1.pas=C:\temp\Jupiter\InventorySystem\ItemsFRM.pas</Transaction>
     <Transaction>2018/09/15 12:56:44.000.440,C:\temp\Jupiter\InventorySystem\Unit1.dfm=C:\temp\Jupiter\InventorySystem\ItemsFRM.dfm</Transaction>
+    <Transaction>2018/09/15 12:56:44.000.440,C:\temp\Jupiter\InventorySystem\Unit1.pas=C:\temp\Jupiter\InventorySystem\ItemsFRM.pas</Transaction>
     <Transaction>2018/09/15 13:07:28.000.922,=C:\temp\Jupiter\InventorySystem\Unit1.pas</Transaction>
-    <Transaction>2018/09/15 13:07:42.000.219,C:\temp\Jupiter\InventorySystem\Unit1.dfm=C:\temp\Jupiter\InventorySystem\AboutFRM.dfm</Transaction>
     <Transaction>2018/09/15 13:07:42.000.219,C:\temp\Jupiter\InventorySystem\Unit1.pas=C:\temp\Jupiter\InventorySystem\AboutFRM.pas</Transaction>
+    <Transaction>2018/09/15 13:07:42.000.219,C:\temp\Jupiter\InventorySystem\Unit1.dfm=C:\temp\Jupiter\InventorySystem\AboutFRM.dfm</Transaction>
     <Transaction>2018/09/15 19:35:09.000.627,=C:\temp\Jupiter\InventorySystem\Unit1.pas</Transaction>
     <Transaction>2018/09/15 19:35:48.000.963,C:\temp\Jupiter\InventorySystem\Unit1.pas=C:\temp\Jupiter\InventorySystem\InventoryController.pas</Transaction>
     <Transaction>2018/09/15 23:16:06.000.406,=C:\temp\Jupiter\InventorySystem\Unit1.pas</Transaction>
@@ -29,5 +29,7 @@
     <Transaction>2018/09/16 00:03:21.000.264,=C:\temp\Jupiter\InventorySystem\Unit1.pas</Transaction>
     <Transaction>2018/09/16 00:03:33.000.983,C:\temp\Jupiter\InventorySystem\Unit1.pas=C:\temp\Jupiter\InventorySystem\ItemController.pas</Transaction>
     <Transaction>2018/09/16 00:09:39.000.404,C:\temp\Jupiter\InventorySystem\InventoryController.pas=</Transaction>
+    <Transaction>2018/09/16 20:05:48.314,C:\temp\Jupiter\Source\ItemDetailsFRM.dfm=C:\temp\Jupiter\Source\StockDetailsFRM.dfm</Transaction>
+    <Transaction>2018/09/16 20:05:48.314,C:\temp\Jupiter\Source\ItemDetailsFRM.pas=C:\temp\Jupiter\Source\StockDetailsFRM.pas</Transaction>
   </Transactions>
 </BorlandProject>

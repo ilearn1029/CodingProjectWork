@@ -36,25 +36,29 @@ object frmMainInventory: TfrmMainInventory
     Left = 264
     Top = 112
     object Stocks1: TMenuItem
-      Caption = 'Inventory'
+      Caption = '&Inventory'
       object btnStocks: TMenuItem
-        Caption = 'Stocks'
+        Caption = '&Stocks'
         OnClick = btnStocksClick
       end
       object btnItems: TMenuItem
-        Caption = 'Items'
+        Caption = '&Items'
         OnClick = btnItemsClick
       end
     end
     object Help1: TMenuItem
-      Caption = 'Help'
+      Caption = '&Help'
       object HelpInv: TMenuItem
-        Caption = 'Help Inventory System'
+        Caption = 'Hel&p Inventory System'
       end
       object About1: TMenuItem
-        Caption = 'About'
+        Caption = '&About'
         OnClick = About2Click
       end
+    end
+    object Exit1: TMenuItem
+      Caption = '&Exit'
+      OnClick = Exit1Click
     end
   end
 end

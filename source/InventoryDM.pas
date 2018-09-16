@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
-  System.IniFiles;
+  System.IniFiles, Vcl.Dialogs, System.UITypes;
 
 type
   TdmInventory = class(TDataModule)
@@ -17,7 +17,8 @@ type
     qryItems: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
-    function GetDatabaseFromPath(const AFirebirdDatabasePath: string): string;
+    FConnectionSuccessful: boolean;
+    function GetDatabaseFromPath(const ADBPath: string): string;
     function GetServerFromPath(const AFirebirdDatabasePath: string): string;
     { Private declarations }
   public
@@ -25,6 +26,7 @@ type
     procedure SetupConnection(const AIni: TIniFile);
     procedure Connect;
     function InitialiseDatabaseConnection: boolean;
+    property ConnectionSuccessful: boolean read FConnectionSuccessful write FConnectionSuccessful;
   end;
 
 var
@@ -82,27 +84,35 @@ end;
 
 procedure TdmInventory.DataModuleCreate(Sender: TObject);
 begin
-  InitialiseDatabaseConnection;
+  try
+    FConnectionSuccessful := InitialiseDatabaseConnection;
+  except
+    on E: exception do
+      MessageDlg('Error connecting to Database. ' + #13#10 + E.Message,
+        mtError, [mbOK], 0);
+  end;
 end;
 
-function TdmInventory.GetDatabaseFromPath(const AFirebirdDatabasePath: string): string;
+function TdmInventory.GetDatabaseFromPath(const ADBPath: string): string;
 var
   LPos: integer;
 begin
-  result := AFirebirdDatabasePath;
-  LPos := Pos(':', AFirebirdDatabasePath);
+  result := ADBPath;
+  LPos := Pos(':', ADBPath);
   if LPos > 1 then
-    result := Copy(AFirebirdDatabasePath, LPos + 1, MAXINT);
+    result := Copy(ADBPath, LPos + 1, MAXINT);
 end;
 
 function TdmInventory.InitialiseDatabaseConnection: boolean;
 var
   LIniFile : TIniFile;
 begin
+  result := false;
   LIniFile := TIniFile.Create('.\InventorySystem.ini');
   try
     SetupConnection(LIniFile);
     connect;
+    result := true;
   finally
     LIniFile.Free;
   end;
@@ -116,15 +126,15 @@ end;
 
 function NextInventorySequenceValue(const ASequenceName: string): integer;
 var
-  LQuery: TFDQuery;
+  LQry: TFDQuery;
 begin
-  LQuery := GetNewInventoryQuery;
+  LQry := GetNewInventoryQuery;
   try
-    LQuery.SQL.Text := 'SELECT NEXT VALUE FOR ' + ASequenceName + ' as new_id from RDB$DATABASE';
-    LQuery.Open;
-    result := LQuery.FieldByName('new_id').AsInteger;
+    LQry.SQL.Text := 'SELECT NEXT VALUE FOR ' + ASequenceName + ' as new_id from RDB$DATABASE';
+    LQry.Open;
+    result := LQry.FieldByName('new_id').AsInteger;
   finally
-    LQuery.Free;
+    LQry.Free;
   end;
 end;
 

@@ -1,9 +1,9 @@
 object frmStationaryStocks: TfrmStationaryStocks
   Left = 0
   Top = 0
-  Caption = 'frmStationaryStocks'
-  ClientHeight = 626
-  ClientWidth = 808
+  Caption = 'Stationary Stocks'
+  ClientHeight = 322
+  ClientWidth = 531
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,65 +19,55 @@ object frmStationaryStocks: TfrmStationaryStocks
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 408
-    Width = 808
-    Height = 218
+    Top = 267
+    Width = 531
+    Height = 55
     Align = alBottom
     TabOrder = 0
+    ExplicitTop = 328
+    ExplicitWidth = 581
     object btnAdd: TButton
-      Left = 110
-      Top = 177
+      Left = 65
+      Top = 12
       Width = 75
       Height = 25
       Caption = 'Add &New'
       TabOrder = 0
       OnClick = btnAddClick
     end
-    object btnDelete: TButton
-      Left = 319
-      Top = 177
-      Width = 75
-      Height = 25
-      Caption = '&Delete'
-      TabOrder = 1
-      OnClick = btnDeleteClick
-    end
     object btnEdit: TButton
-      Left = 208
-      Top = 177
+      Left = 162
+      Top = 12
       Width = 75
       Height = 25
       Caption = '&Edit'
-      TabOrder = 2
+      TabOrder = 1
       OnClick = btnEditClick
     end
-    object Button3: TButton
-      Left = 417
-      Top = 177
+    object btnDelete: TButton
+      Left = 265
+      Top = 12
       Width = 75
       Height = 25
-      Caption = '&Cancel'
-      TabOrder = 3
+      Caption = '&Delete'
+      TabOrder = 2
+      OnClick = btnDeleteClick
     end
-    object DBGrid1: TDBGrid
-      Left = 48
-      Top = 16
-      Width = 521
-      Height = 120
-      DataSource = StocksDatasource
-      TabOrder = 4
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
+    object btnClose: TButton
+      Left = 363
+      Top = 12
+      Width = 75
+      Height = 25
+      Caption = '&Close'
+      TabOrder = 3
+      OnClick = btnCloseClick
     end
   end
   object StocksTree: TVirtualStringTree
     Left = 0
     Top = 0
-    Width = 808
-    Height = 408
+    Width = 531
+    Height = 267
     Align = alClient
     Header.AutoSizeIndex = -1
     Header.Font.Charset = DEFAULT_CHARSET
@@ -93,31 +83,41 @@ object frmStationaryStocks: TfrmStationaryStocks
     OnDblClick = StocksTreeDblClick
     OnGetText = StocksTreeGetText
     OnInitNode = StocksTreeInitNode
+    ExplicitWidth = 808
+    ExplicitHeight = 408
     Columns = <
       item
+        Alignment = taCenter
         Position = 0
+        Width = 70
         WideText = 'Stock ID'
       end
       item
         Position = 1
+        Width = 200
         WideText = 'Item Name'
       end
       item
+        Alignment = taCenter
         Position = 2
+        Width = 70
         WideText = 'Quantity'
       end
       item
+        Alignment = taRightJustify
         Position = 3
+        Width = 70
         WideText = 'Unit Price'
+      end
+      item
+        Position = 4
+        Width = 90
+        WideText = 'Modified Date'
       end>
   end
-  object StocksDatasource: TDataSource
-    Left = 648
-    Top = 448
-  end
   object ActionList: TActionList
-    Left = 417
-    Top = 264
+    Left = 241
+    Top = 120
     object FilterAction: TAction
       Caption = 'Filter'
     end

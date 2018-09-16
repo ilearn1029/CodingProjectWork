@@ -21,10 +21,12 @@ type
     Label1: TLabel;
     HelpInv: TMenuItem;
     About1: TMenuItem;
+    Exit1: TMenuItem;
     procedure btnStocksClick(Sender: TObject);
     procedure btnItemsClick(Sender: TObject);
     procedure Help1Click(Sender: TObject);
     procedure About2Click(Sender: TObject);
+    procedure Exit1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -85,5 +87,10 @@ begin
   end;
 end;
 
+
+procedure TfrmMainInventory.Exit1Click(Sender: TObject);
+begin
+  close;
+end;
 
 end.

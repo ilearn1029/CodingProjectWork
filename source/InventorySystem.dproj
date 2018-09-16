@@ -89,7 +89,7 @@
         <AppEnableHighDPI>true</AppEnableHighDPI>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>..\InventorySystem</DCC_ExeOutput>
+        <DCC_ExeOutput>..\Output</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -105,33 +105,18 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="InventoryMainFRM.pas">
-            <Form>frmMainInventory</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="InventoryDM.pas">
             <Form>dmInventory</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="StationaryStocksFRM.pas">
-            <Form>frmStationaryStocks</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="ItemsFRM.pas">
-            <Form>frmItems</Form>
+        <DCCReference Include="InventoryMainFRM.pas">
+            <Form>frmMainInventory</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="AboutFRM.pas">
             <Form>AboutBox</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="StockDetailsFRM.pas">
-            <Form>frmStockDetails</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="StockController.pas"/>
-        <DCCReference Include="ItemController.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
