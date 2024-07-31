@@ -1,0 +1,74 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.client.ClientRequest;
+import org.springframework.web.reactive.function.client.ClientResponse;
+import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
+import reactor.core.publisher.Mono;
+
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+
+public class WebClientLoggingFilter {
+
+    private static final Logger logger = LoggerFactory.getLogger(WebClientLoggingFilter.class);
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    public static ExchangeFilterFunction logRequest() {
+        return ExchangeFilterFunction.ofRequestProcessor(request -> {
+            try {
+                logRequestDetails(request);
+            } catch (JsonProcessingException e) {
+                logger.error("Failed to log request", e);
+            }
+            return Mono.just(request);
+        });
+    }
+
+    public static ExchangeFilterFunction logResponse() {
+        return ExchangeFilterFunction.ofResponseProcessor(response -> {
+            try {
+                logResponseDetails(response);
+            } catch (JsonProcessingException e) {
+                logger.error("Failed to log response", e);
+            }
+            return Mono.just(response);
+        });
+    }
+
+    private static void logRequestDetails(ClientRequest request) throws JsonProcessingException {
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("method", request.method());
+        requestMap.put("url", request.url());
+        requestMap.put("headers", request.headers());
+
+        request.body().subscribe(buffer -> {
+            byte[] bytes = new byte[buffer.readableByteCount()];
+            buffer.read(bytes);
+            String bodyString = new String(bytes, StandardCharsets.UTF_8);
+            requestMap.put("body", bodyString);
+        });
+
+        String requestJson = objectMapper.writeValueAsString(requestMap);
+        logger.info("Request: {}", requestJson);
+    }
+
+    private static void logResponseDetails(ClientResponse response) throws JsonProcessingException {
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("status", response.statusCode());
+        responseMap.put("headers", response.headers().asHttpHeaders());
+
+        response.bodyToMono(String.class).subscribe(body -> {
+            responseMap.put("body", body);
+            try {
+                String responseJson = objectMapper.writeValueAsString(responseMap);
+                logger.info("Response: {}", responseJson);
+            } catch (JsonProcessingException e) {
+                logger.error("Failed to log response body", e);
+            }
+        });
+    }
+}
